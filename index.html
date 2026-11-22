@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Олена Коваль — англійська онлайн (демо-сторінка)</title>
+<meta name="description" content="Приклад сторінки репетитора: англійська онлайн для школярів і дорослих, підготовка до НМТ.">
+<style>
+  :root{
+    --bg:#fbf8f3; --ink:#1f2430; --muted:#5d6472; --line:#e6e0d6;
+    --accent:#1f6f5c; --accent-ink:#ffffff; --soft:#e8f2ee; --warm:#f3e9d8;
+    --radius:14px; --max:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  a{color:var(--accent)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .demo-bar{background:#2a2f3a;color:#f1f1f1;font-size:14px;text-align:center;padding:8px 16px}
+  header{position:sticky;top:0;background:rgba(251,248,243,.94);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .logo{font-weight:700;letter-spacing:.2px;text-decoration:none;color:var(--ink)}
+  .nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+  .nav ul a{text-decoration:none;color:var(--muted);font-size:15px}
+  .nav ul a:hover{color:var(--ink)}
+  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;
+    padding:12px 22px;border-radius:999px;font-weight:600;border:0;cursor:pointer;font-size:16px}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+  .btn.small{padding:8px 16px;font-size:15px}
+
+  .hero{padding:64px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-block;background:var(--soft);color:var(--accent);font-weight:600;
+    font-size:14px;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  h1{font-size:clamp(32px,5vw,50px);line-height:1.12;margin:0 0 18px;letter-spacing:-.5px}
+  .lead{font-size:19px;color:var(--muted);margin:0 0 28px;max-width:34em}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .facts{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
+  .facts b{display:block;font-size:24px}
+  .facts span{color:var(--muted);font-size:14px}
+  .portrait{aspect-ratio:4/5;border-radius:24px;background:
+    radial-gradient(circle at 50% 36%,#d9c7a8 0 18%,transparent 18.5%),
+    radial-gradient(ellipse at 50% 92%,#1f6f5c 0 38%,transparent 38.5%),
+    linear-gradient(160deg,var(--warm),#efe2cb);
+    display:flex;align-items:flex-start;justify-content:center;padding:14px;color:#6b5a3e;font-size:13px}
+
+  section{padding:64px 0}
+  section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(26px,3.4vw,34px);margin:0 0 10px;letter-spacing:-.3px}
+  .sub{color:var(--muted);margin:0 0 34px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  section.alt .card{background:var(--bg)}
+  .card h3{margin:0 0 6px;font-size:19px}
+  .card p{margin:0;color:var(--muted);font-size:16px}
+
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .price{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:#fff;display:flex;flex-direction:column}
+  .price.best{border:2px solid var(--accent)}
+  .price .tag{font-size:13px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.6px;min-height:20px}
+  .price .sum{font-size:34px;font-weight:700;margin:6px 0 2px}
+  .price .per{color:var(--muted);font-size:14px;margin-bottom:16px}
+  .price ul{padding-left:18px;margin:0 0 22px;color:var(--muted);font-size:15px;flex:1}
+
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step{position:relative;padding-top:44px}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:32px;height:32px;
+    border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step h3{margin:0 0 4px;font-size:17px}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  blockquote{margin:0;background:var(--bg);border-radius:var(--radius);padding:22px;border:1px solid var(--line)}
+  blockquote p{margin:0 0 12px}
+  blockquote cite{font-style:normal;color:var(--muted);font-size:14px}
+
+  details{border-bottom:1px solid var(--line);padding:16px 0}
+  summary{cursor:pointer;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";float:right;color:var(--accent);font-size:20px;line-height:1}
+  details[open] summary:after{content:"–"}
+  details p{color:var(--muted);margin:10px 0 0}
+
+  .book{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:grid;gap:14px}
+  label{font-size:14px;font-weight:600;display:grid;gap:6px}
+  input,select,textarea{font:inherit;padding:11px 12px;border:1px solid #cfc8bb;border-radius:10px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+  .note{font-size:13px;color:var(--muted);margin:0}
+  .ok{display:none;background:var(--soft);color:var(--accent);padding:12px;border-radius:10px;font-weight:600}
+  .contacts{display:grid;gap:12px;margin-top:20px}
+  .contacts a{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink)}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+
+  footer{padding:34px 0;color:var(--muted);font-size:14px;text-align:center}
+  .float{display:none}
+
+  @media (max-width:860px){
+    .hero-grid,.book{grid-template-columns:1fr}
+    .portrait{max-width:200px;order:-1}
+    .cards,.prices,.reviews{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .nav ul{display:none}
+    .hero{padding:36px 0 40px}
+    section{padding:48px 0}
+    .float{display:block;position:fixed;left:16px;right:16px;bottom:14px;text-align:center;z-index:20;
+      box-shadow:0 6px 20px rgba(0,0,0,.18)}
+    footer{padding-bottom:90px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">Це демонстраційна сторінка. Олена Коваль — вигаданий репетитор, контакти й відгуки несправжні.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Олена Коваль · English</a>
+    <ul>
+      <li><a href="#about">Про мене</a></li>
+      <li><a href="#prices">Ціни</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
+      <li><a href="#faq">Питання</a></li>
+    </ul>
+    <a class="btn small" href="#book">Записатися</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Онлайн · Zoom / Google Meet</span>
+        <h1>Англійська, після якої не страшно говорити</h1>
+        <p class="lead">Індивідуальні заняття для школярів 7–11 класів і дорослих. Підготовка до НМТ, розмовна англійська, допомога зі шкільною програмою.</p>
+        <div class="cta-row">
+          <a class="btn" href="#book">Безкоштовне пробне заняття</a>
+          <a class="btn ghost" href="#prices">Подивитися ціни</a>
+        </div>
+        <div class="facts">
+          <div><b>6 років</b><span>викладаю</span></div>
+          <div><b>C1</b><span>сертифікат</span></div>
+          <div><b>40+</b><span>учнів</span></div>
+        </div>
+      </div>
+      <div class="portrait" role="img" aria-label="Місце для фото репетитора">тут буде ваше фото</div>
+    </div>
+  </div>
+
+  <section class="alt" id="about">
+    <div class="wrap">
+      <h2>З чим допомагаю</h2>
+      <p class="sub">Спочатку визначаємо рівень і ціль, потім складаємо план саме під вас.</p>
+      <div class="cards">
+        <div class="card"><h3>Підготовка до НМТ</h3><p>Розбір формату тесту, типових пасток і тренувальні варіанти минулих років.</p></div>
+        <div class="card"><h3>Розмовна англійська</h3><p>Прибираємо мовний бар'єр: діалоги, вимова, реальні ситуації з роботи й подорожей.</p></div>
+        <div class="card"><h3>Шкільна програма</h3><p>Пояснюю граматику простими словами, допомагаю з домашніми й контрольними.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <h2>Ціни</h2>
+      <p class="sub">Оплата після заняття або пакетом наперед. Перенести урок можна безкоштовно за 12 годин.</p>
+      <div class="prices">
+        <div class="price">
+          <div class="tag"></div>
+          <div>Пробне заняття</div>
+          <div class="sum">0 грн</div>
+          <div class="per">30 хвилин</div>
+          <ul><li>Визначення рівня</li><li>План навчання</li><li>Відповіді на питання</li></ul>
+          <a class="btn ghost" href="#book">Записатися</a>
+        </div>
+        <div class="price best">
+          <div class="tag">Найчастіше обирають</div>
+          <div>Пакет 8 занять</div>
+          <div class="sum">2 400 грн</div>
+          <div class="per">300 грн за 60 хв</div>
+          <ul><li>Заняття 2 рази на тиждень</li><li>Домашні з перевіркою</li><li>Зв'язок у Telegram між уроками</li></ul>
+          <a class="btn" href="#book">Обрати пакет</a>
+        </div>
+        <div class="price">
+          <div class="tag"></div>
+          <div>Разове заняття</div>
+          <div class="sum">350 грн</div>
+          <div class="per">60 хвилин</div>
+          <ul><li>Без зобов'язань</li><li>Будь-яка тема</li><li>Матеріали після уроку</li></ul>
+          <a class="btn ghost" href="#book">Записатися</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Як почати</h2>
+      <p class="sub">Від заявки до першого заняття зазвичай минає один-два дні.</p>
+      <div class="steps">
+        <div class="step"><h3>Заявка</h3><p>Заповнюєте коротку форму нижче або пишете в Telegram.</p></div>
+        <div class="step"><h3>Відповідь</h3><p>Протягом дня пропоную кілька зручних слотів.</p></div>
+        <div class="step"><h3>Пробне</h3><p>30 хвилин знайомства й перевірки рівня безкоштовно.</p></div>
+        <div class="step"><h3>План</h3><p>Отримуєте план занять і починаємо.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <h2>Відгуки</h2>
+      <p class="sub">Приклад блоку. На справжній сторінці тут будуть відгуки ваших учнів.</p>
+      <div class="reviews">
+        <blockquote><p>«Донька нарешті перестала боятися усних відповідей, а оцінки піднялися з 7 до 10».</p><cite>Мама учениці 8 класу</cite></blockquote>
+        <blockquote><p>«За чотири місяці підготувався до НМТ, усе пояснено чітко й без води».</p><cite>Випускник 11 класу</cite></blockquote>
+        <blockquote><p>«Потрібна була англійська для співбесіди. Пройшов її з першого разу».</p><cite>Учень, 29 років</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <h2>Часті питання</h2>
+      <p class="sub">Відповіді, які інакше доводиться писати в переписці кожному новому учню.</p>
+      <details><summary>Як проходять заняття?</summary><p>Онлайн у Zoom або Google Meet. Потрібні лише комп'ютер або планшет і навушники.</p></details>
+      <details><summary>Що, якщо треба перенести урок?</summary><p>Попередьте за 12 годин, і перенесемо без оплати. Пізніше скасоване заняття оплачується.</p></details>
+      <details><summary>Чи працюєте з дорослими?</summary><p>Так, близько третини учнів — дорослі, які вчать англійську для роботи чи переїзду.</p></details>
+      <details><summary>Як оплатити?</summary><p>Переказом на картку після заняття або пакетом наперед.</p></details>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap book">
+      <div>
+        <h2>Запис на пробне заняття</h2>
+        <p class="sub">Залиште заявку, і я відповім протягом дня. Або напишіть одразу в месенджер.</p>
+        <div class="contacts">
+          <a href="#book" onclick="return demoLink()"><span class="dot"></span>Написати в Telegram</a>
+          <a href="#book" onclick="return demoLink()"><span class="dot"></span>Написати у Viber</a>
+        </div>
+      </div>
+      <form id="f" onsubmit="return send(event)">
+        <label>Ім'я<input name="name" required autocomplete="name"></label>
+        <label>Telegram або телефон<input name="contact" required></label>
+        <label>Хто навчатиметься
+          <select name="who"><option>Школяр 7–9 клас</option><option>Школяр 10–11 клас / НМТ</option><option>Дорослий</option></select>
+        </label>
+        <label>Зручний час<input name="time" placeholder="наприклад: будні після 17:00"></label>
+        <button class="btn" type="submit">Надіслати заявку</button>
+        <p class="note">На справжній сторінці заявка приходить репетитору в Telegram або на пошту.</p>
+        <div class="ok" id="ok">Демо: заявку не надіслано, бо це приклад сторінки.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<a class="btn float" href="#book">Записатися на пробне</a>
+
+<footer>
+  <div class="wrap">Демонстраційна сторінка · 2026</div>
+</footer>
+
+<script>
+  function send(e){e.preventDefault();document.getElementById('ok').style.display='block';return false}
+  function demoLink(){var o=document.getElementById('ok');o.textContent='Демо: тут буде посилання на месенджер репетитора.';o.style.display='block';return false}
+</script>
+</body>
+</html>
